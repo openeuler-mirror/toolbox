@@ -3,13 +3,13 @@ Version:       0.0.99
 
 %global goipath github.com/containers/%{name}
 
-Release:       1
+Release:       2
 Summary:       Unprivileged development environment
 
 License:       ASL 2.0
 URL:           https://github.com/containers/toolbox
 
-Source0:       toolbox-0.0.99-vendored.tar.xz
+Source0:       toolbox-0.0.99.3.tar.xz
 Source1:       https://github.com/cpuguy83/go-md2man/archive/v1.0.10.tar.gz
 
 BuildRequires: golang >= 1.13 meson
@@ -87,5 +87,8 @@ ln -s src/vendor vendor
 %{_datadir}/%{name}
 
 %changelog
-* Thu Feb 10 2022 duyiwei <duyiwei@kylinos.cn> - 0.0.99-1
+* Tue Jun 07 2022 fushanqing <fushanqing@kylinos.cn> - 0.0.99.3-2
+- update Source0
+
+* Thu Feb 10 2022 duyiwei <duyiwei@kylinos.cn> - 0.0.99.3-1
 - Package init
