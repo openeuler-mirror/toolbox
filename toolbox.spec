@@ -3,7 +3,7 @@ Version:       0.0.99
 
 %global goipath github.com/containers/%{name}
 
-Release:       2
+Release:       3
 Summary:       Unprivileged development environment
 
 License:       ASL 2.0
@@ -11,7 +11,7 @@ URL:           https://github.com/containers/toolbox
 
 Source0:       toolbox-0.0.99.3.tar.xz
 Source1:       https://github.com/cpuguy83/go-md2man/archive/v1.0.10.tar.gz
-
+Patch0:        0001-fix-wrong-path-of-os-release.patch
 BuildRequires: golang >= 1.13 meson
 BuildRequires: pkgconfig(bash-completion) systemd
 
@@ -35,6 +35,7 @@ The toolbox-tests package contains system tests for toolbox.
 
 %prep
 %setup -q
+%patch0 -p 1
 
 GOBUILDDIR="$(pwd)/_build"
 GOSOURCEDIR="$(pwd)"
@@ -87,6 +88,9 @@ ln -s src/vendor vendor
 %{_datadir}/%{name}
 
 %changelog
+* Thu Sep 15 2022 duyiwei <duyiwei@kylinos.cn> - 0.0.99-3
+- change /usr/lib/os-release to /etc/os-release
+
 * Tue Jun 07 2022 fushanqing <fushanqing@kylinos.cn> - 0.0.99.3-2
 - update Source0
 
