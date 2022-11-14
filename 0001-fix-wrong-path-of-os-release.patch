@@ -1,0 +1,58 @@
+From d4da0320234814ec17a817d049440cfd17833ecf Mon Sep 17 00:00:00 2001
+From: duyiwei <duyiwei@kylinos.cn>
+Date: Thu, 15 Sep 2022 15:32:58 +0800
+Subject: [PATCH] fix-wrong-path-of-os-release
+
+Signed-off-by: duyiwei <duyiwei@kylinos.cn>
+---
+ profile.d/toolbox.sh | 2 +-
+ toolbox              | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/profile.d/toolbox.sh b/profile.d/toolbox.sh
+index d43f6c7..5489cda 100644
+--- a/profile.d/toolbox.sh
++++ b/profile.d/toolbox.sh
+@@ -8,7 +8,7 @@ toolbox_welcome_stub="$toolbox_config/toolbox-welcome-shown"
+ # shellcheck disable=2046
+ # shellcheck disable=SC1091
+ eval $(
+-          . /usr/lib/os-release
++          . /etc/os-release
+ 
+           echo ID="$ID"
+           echo VARIANT_ID="$VARIANT_ID"
+diff --git a/toolbox b/toolbox
+index c6ae396..2848c19 100755
+--- a/toolbox
++++ b/toolbox
+@@ -531,7 +531,7 @@ get_group_for_sudo()
+ get_host_id()
+ (
+     # shellcheck disable=SC1091
+-    . /usr/lib/os-release
++    . /etc/os-release
+     echo "$ID"
+ )
+ 
+@@ -539,7 +539,7 @@ get_host_id()
+ get_host_variant_id()
+ (
+     # shellcheck disable=SC1091
+-    . /usr/lib/os-release
++    . /etc/os-release
+     echo "$VARIANT_ID"
+ )
+ 
+@@ -547,7 +547,7 @@ get_host_variant_id()
+ get_host_version_id()
+ (
+     # shellcheck disable=SC1091
+-    . /usr/lib/os-release
++    . /etc/os-release
+     echo "$VERSION_ID"
+ )
+ 
+-- 
+2.33.0
+
