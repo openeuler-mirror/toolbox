@@ -3,10 +3,10 @@ Version:       0.0.99
 
 %global goipath github.com/containers/%{name}
 
-Release:       3
+Release:       4
 Summary:       Unprivileged development environment
 
-License:       ASL 2.0
+License:       Apache-2.0
 URL:           https://github.com/containers/toolbox
 
 Source0:       toolbox-0.0.99.3.tar.xz
@@ -88,6 +88,9 @@ ln -s src/vendor vendor
 %{_datadir}/%{name}
 
 %changelog
+* Thu Dec 15 2022 dingdingaaaaa <dingziwei@kylinos.cn> - 0.0.99-4
+- License compliance rectification
+
 * Thu Sep 15 2022 duyiwei <duyiwei@kylinos.cn> - 0.0.99-3
 - change /usr/lib/os-release to /etc/os-release
 
